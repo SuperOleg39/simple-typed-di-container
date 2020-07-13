@@ -1,0 +1,42 @@
+{
+  "name": "simple-typed-di-container",
+  "version": "1.0.0",
+  "description": "Dependency injection container with strongly types support",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "start": "npm run build:watch",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "test": "jest",
+    "test:watch": "npm run test -- --watch",
+    "prettier": "npx prettier --write .",
+    "prebuild": "rimraf dist",
+    "prerelease": "npm run build",
+    "release": "standard-version",
+    "release:dry": "npm run release -- --dry-run"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run prettier && git add .",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "author": "SuperOleg39",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:SuperOleg39/simple-typed-di-container.git"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@commitlint/cli": "^9.1.1",
+    "@commitlint/config-conventional": "^9.1.1",
+    "@types/jest": "^26.0.4",
+    "husky": "^4.2.5",
+    "jest": "^26.1.0",
+    "prettier": "2.0.5",
+    "standard-version": "^8.0.1",
+    "ts-jest": "^26.1.2",
+    "typescript": "^3.9.6"
+  }
+}
